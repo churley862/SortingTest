@@ -6,31 +6,30 @@ public class MergeSort {
         int comparisons = 0;
         int[] temp = new int[dataSize];
         int leftStart = 0;
-        int rightEnd = dataSize;
-        sort(leftStart, rightEnd,temp, data,dataSize);
+        int rightEnd = dataSize-1;
+        sort(leftStart, rightEnd,temp, data);
+        System.out.println(temp[0] +" " +data[0]);
         return new SortMetrics(swaps,comparisons);
     }
 
-    private static void sort(int leftStart, int rightEnd,int[] temp, int[] data,int dataSize) {
-        if(leftStart > rightEnd) {
-            //System.out.println("exit");
+    private static void sort(int leftStart, int rightEnd,int[] temp, int[] data) {
+        if(leftStart >= rightEnd) {
             return;
         }
         int middle = (leftStart + rightEnd)/2;
-        sort(leftStart,middle,temp,data,dataSize);
-        sort(middle,rightEnd,temp,data,dataSize);
-        mergeSides(leftStart,rightEnd,temp,data,dataSize);
+        sort(leftStart,middle,temp,data);
+        sort(middle+1,rightEnd,temp,data);
+        mergeSides(leftStart,rightEnd,temp,data);
 
         }
 
-    private static void mergeSides(int leftStart, int rightEnd,int[] temp , int[] data, int dataSize) {
+    private static void mergeSides(int leftStart, int rightEnd,int[] temp , int[] data) {
         int leftEnd = (rightEnd+leftStart)/2;
         int rightStart = leftEnd+1;
-
         int left = leftStart;
         int right = rightStart;
         int index = leftStart;
-        while (left <= leftEnd || right <= rightEnd){
+        while (left <= leftEnd && right <= rightEnd){
             if (data[left] <= data[right]){
                 temp [index] = data[left];
                 left++;
@@ -49,7 +48,7 @@ public class MergeSort {
             left++;
         }
         data = temp.clone();
-        System.out.println("hello" + data[0]);
+
     }
 }
 
