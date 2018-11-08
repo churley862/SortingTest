@@ -1,8 +1,4 @@
-/*
- * Collin Hurley
- * 11/8/2018
- * CS 203
- * */
+
 package com.company;
 
 public class SortMetrics {

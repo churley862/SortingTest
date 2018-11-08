@@ -6,6 +6,15 @@
 package com.company;
 
 public class InsertionSort {
+    /**************************************************************/
+    /* Method: InsertionSort */
+    /* Purpose: Runs insertion sort on the inputted array data
+    /* for the size inputted
+    /* Parameters: */
+    /* int[] data: the array to be sorted */
+    /* int dataSize: the size of the array to be sorted */
+    /* Returns: SortMetrics: swaps and comparisons are stored here*/
+    /**************************************************************/
 
 
     public static SortMetrics InsertionSort(int[] data, int dataSize){
