@@ -1,11 +1,14 @@
+/*
+ * Collin Hurley
+ * 11/8/2018
+ * CS 203
+ * */
 package com.company;
 
 public class QuickSort {
-
+    private static int comparisons = 0;
+    private static int swaps = 0;
     public static SortMetrics QuickSort(int data[], int dataSize){
-        int swaps = 0;
-        int comparisons = 0;
-        int[] temp = new int[dataSize];
         int left =0;
         int right = dataSize-1;
         quickSort(data,left,right);
@@ -13,6 +16,7 @@ public class QuickSort {
     }
 
     private static void quickSort(int[] data, int left, int right) {
+        comparisons++;
         if(left >= right){
             return;
         }
@@ -24,14 +28,19 @@ public class QuickSort {
     }
 
     private static int partition(int[] data, int left, int right, int pivot) {
+        comparisons++;
         while (left<=right){
+            comparisons++;
             while (data[left]< pivot){
                 left++;
             }
+            comparisons++;
             while (data[right]>pivot){
                 right--;
             }
+            comparisons++;
             if(left <=right){
+                swaps++;
                 swap(data,left,right);
                 left++;
                 right--;
@@ -44,9 +53,7 @@ public class QuickSort {
 
     private static void swap(int[] data, int left, int right) {
         int temp =data[left];
-        //System.out.println(data[left]);
         data[left] = data[right];
-        //System.out.println(data[right]);
         data[right] = temp;
 
     }
