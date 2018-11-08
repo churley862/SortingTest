@@ -34,7 +34,7 @@ public class MergeSort {
     /* int[] temp: single array to store results in to save time */
     /* int leftStart: start of the left side of the split array
     /* int rightEnd: end of the array on the right side
-    /* Returns: SortMetrics: swaps and comparisons are stored here*/
+    /* Returns: void */
     /**************************************************************/
     private static void sort(int leftStart, int rightEnd, int[] temp, int[] data) {
         comparisons++;
