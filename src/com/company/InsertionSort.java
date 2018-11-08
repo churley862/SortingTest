@@ -9,7 +9,7 @@ public class InsertionSort {
         for(int i=0; i<(dataSize);++i){
             int key = data[i];
             int previousIndex = i-1;
-            while (previousIndex>0 && (data[previousIndex] > key)){
+            while (previousIndex>=0 && (data[previousIndex] > key)){
                 comparisons += 2;
                 data[previousIndex+1] = data[previousIndex];
                 ++swaps;
